@@ -1,0 +1,257 @@
+{
+  "basic_information":[
+    {
+      "id": 1,
+      "query": [],
+      "message": "子域名查询"
+    },
+    {
+      "id": 2,
+      "query": [],
+      "message": "C段查询"
+    }
+  ],
+  "sensitive_file": [
+    {
+      "id": 3,
+      "query": [
+        "filetype:zip",
+        "filetype:rar",
+        "filetype:tar",
+        "filetype:tar.gz",
+        "filetype:7z",
+        "filetype:cab",
+        "filetype:gz",
+        "filetype:iso",
+        "filetype:bz2",
+        "filetype:jar"
+      ],
+      "message": "备份文件查询"
+    },
+    {
+      "id": 4,
+      "query": [
+        "filetype:conf",
+        "filetype:cnf",
+        "filetype:xml",
+        "filetype:ini",
+        "filetype:dll",
+        "filetype:ctl",
+        "filetype:inf",
+        "filetype:cfg",
+        "filetype:cnf my.cnf -cvs -example",
+        "filetype:cfg mrtg \"target[*]\" -sample -cvs -example",
+        "inurl:config \"fetch = +refs/heads/*:refs/remotes/origin/*\"",
+        "inurl:configuration.php intext:\"class JConfig {\""
+      ],
+      "message": "配置文件查询"
+    },
+    {
+      "id": 5,
+      "query": [
+        "filetype:log inurl:log",
+        "ext:log log"
+      ],
+      "message": "日志文件查询"
+    },
+    {
+      "id": 6,
+      "query": [
+        "filetype:sql",
+        "filetype:dbf",
+        "filetype:mdb",
+        "filetype:wdb",
+        "filetype:dat",
+        "inurl:db|backupdb",
+        "intext:\"Dumping data for table\""
+      ],
+      "message": "数据库文件查询"
+    },
+    {
+      "id": 7,
+      "query": [
+        "intitle:\"apache tomcat/\" \"Apache Tomcat examples\"",
+        "inurl:/examples/jsp/snp/snoop.jsp"
+      ],
+      "message": "样例文件查询"
+    },
+    {
+      "id": 8,
+      "query": [
+        "(inurl:\"robot.txt\" | inurl:\"robots.txt\" ) intext:disallow filetype:txt"
+      ],
+      "message": "其他敏感文件查询"
+    },
+    {
+      "id": 9,
+      "query": [
+        "filetype: reg HKEY_CURRENT_USER username"
+      ],
+      "message": "注册表查询"
+    }
+  ],
+  "sensitive_directory": [
+    {
+      "id": 10,
+      "query": [
+        "intitle:index .of \"parent directory\"",
+        "intitle:index .of name size",
+        "intitle:index .of inurl:admin",
+        "intitle:index .of \"Application Data/Microsoft/Credentials\"",
+        "intitle:index .of etc|.sh_history|.bash_history|passwd|people.lst|htpasswd"
+      ],
+      "message": "目录列表"
+    },
+    {
+      "id": 11,
+      "query": [
+        "inurl:tmp|temp|cache"
+      ],
+      "message": "临时文件目录"
+    },
+    {
+      "id": 12,
+      "query": [
+        "inurl:admin|login|manage|manager|register|prelogin|logincheck",
+        "intext:管理|后台|登陆|用户名|密码|帐号|注册|admin|login|manage|manager|register|houtai|guanli|forgotten",
+        "intext:\"Powered by\"",
+        "intext:\"XX科技\""
+      ],
+      "message": "登录位置查询"
+    },
+    {
+      "id": 13,
+      "query": [
+        "inurl:xxgk"
+      ],
+      "message": "敏感目录"
+    }
+  ],
+  "sensitive_information": [
+    {
+      "id": 14,
+      "query": [
+        "intext:\"sql syntax near\"|\"syntax error has occurred\"| \"incorrect syntax near\"|\"unexpected end of SQL command\"|\"mysql_connect()\"| \"mysql_query()\"|\"Warning: pg_connect()\"",
+        "intext:\"/var/lib/\"|\"/var/www/\"|\"D:\\\\\"|\"C:\\\\\""
+      ],
+      "message": "错误消息收集"
+    },
+    {
+      "id": 15,
+      "query": [
+        "intext:(password|passcode|pass|密码) intext:(username|userid|user|用户|账户)"
+      ],
+      "message": "用户名、密码和其他秘密信息"
+    },
+    {
+      "id": 16,
+      "query": [
+        "intext:邮箱|邮件|email|e-mail",
+        "intext:\"@qq.com\"|\"@163.com\""
+      ],
+      "message": "电子邮箱地址查找"
+    },
+    {
+      "id": 17,
+      "query": [
+        "intext:电话|手机号|联系方式|请拨打"
+      ],
+      "message": "电话号码"
+    }
+  ],
+  "office_file": [
+    {
+      "id": 18,
+      "query": [
+        "filetype:doc \"密码\"",
+        "filetype:xls|xlxs \"密码\"",
+        "filetype:doc intitle:\"管理\""
+      ],
+      "message": "Office文档收集"
+    }
+  ],
+  "finger_print": [
+    {
+      "id": 19,
+      "query": [
+        "inurl:shared/login.jsp?/ BMC arsys"
+      ],
+      "message": "指纹识别"
+    }
+  ],
+  "functional_page": [
+    {
+      "id": 20,
+      "query": [
+        "inurl:upload|upfile|saveup intext:提交|确定|上传"
+      ],
+      "message": "文件上传功能"
+    },
+    {
+      "id": 21,
+      "query": [
+        "inurl:download|downfile|submit intext:提交|确定|下载"
+      ],
+      "message": "文件下载功能"
+    },
+    {
+      "id": 22,
+      "query": [
+        "inurl:\"path=\"|\"readfile=\"|\"file=\"|\"url=\""
+      ],
+      "message": "文件读取功能"
+    },
+    {
+      "id": 23,
+      "query": [
+        "intext:提交|确定|评论"
+      ],
+      "message": "留言评论功能"
+    },
+    {
+      "id": 24,
+      "query": [
+        "intext:个人信息管理|会员|个人空间 OR inurl:member|zone"
+      ],
+      "message": "个人空间"
+    }
+  ],
+  "vulnerable_page": [
+    {
+      "id": 25,
+      "query": [
+        "inurl:\"/uddiexplorer/SetupUDDIExplorer.jsp\""
+      ],
+      "message": "易受攻击文件收集"
+    }
+  ],
+  "hacked_page": [
+    {
+      "id": 26,
+      "query": [
+        "intext:博彩|澳门|反共|色情|百家乐|轮盘|时时彩|荷官|香港彩|娱乐城|性爱|大陆|共匪|楼凤|外围|良家|一夜情|交友|上门服务",
+        "intext:裸聊|找小姐|返水|自拍|六合彩|同城交友|丝袜|少妇|小姐|狼友|桑拿|夜生活|真人娱乐|真钱|娱乐城|免费试玩|随时结算",
+        "intext:老虎机|真人娱乐|返点|德州扑克|棋牌|进入直播|游戏账号|\"VIP俱乐部\"|菠菜"
+      ],
+      "message": "博彩、广告、反共言论查询"
+    },
+    {
+      "id": 27,
+      "query": [
+        "intext:剑眉大侠|不灭之魂|仗剑孤行|通杀版|法客论坛|上传的口令|\"导出DLL文件出错\"|\"token虚拟机管理\"|老子的绝对路径|免杀版",
+        "intext:法克|后门|木马|小马|大马|脱库|黑客|一句话后门|挂马|清马|\"扫描IP\"|开放端口|提权|执行命令|设置密码|提升权限",
+        "intext:一句话木马|过狗|安全狗|\"K8飞刀\"|\"K8拉登哥哥\"|\"K8搞基大队\"|反弹端口|\"hacked by\"",
+        "inurl:phpspy|udf|JFolder|JspSpyJDK5|AspxSpy2014Final"
+      ],
+      "message": "历史遗留后门文件"
+    },
+    {
+      "id": 28,
+      "query": [
+        "intext:\"Struts2 Exploit Test\"",
+        "intext:\"Georg says\" intext:\"All seems fine\""
+      ],
+      "message": "其他特征文件"
+    }
+  ]
+}
